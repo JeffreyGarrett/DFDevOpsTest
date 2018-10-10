@@ -26,6 +26,8 @@ namespace MyTesting
         {
             log.LogInformation("DevOpsTest HTTP Triggered");
 
+            req.RequestUri.ParseQueryString();
+
             dynamic data = await req.Content.ReadAsAsync<object>();
 
             if (data?.delay == null || data?.speed == null)
