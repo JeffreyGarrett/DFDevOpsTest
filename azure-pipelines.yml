@@ -27,5 +27,5 @@ steps:
   inputs:
     command: publish
     publishWebProjects: False
-    arguments: '--configuration $(BuildConfiguration) --output D:\a\r1\a\'
+    arguments: '--configuration $(BuildConfiguration) --output D:\a\r1\a\output.zip'
     zipAfterPublish: True
