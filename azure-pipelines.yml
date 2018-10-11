@@ -25,4 +25,10 @@ steps:
    # artifactName: 'drop' 
    # publishLocation: 'filePath'
    # targetPath: 'D:\a\r1\a\'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
     
