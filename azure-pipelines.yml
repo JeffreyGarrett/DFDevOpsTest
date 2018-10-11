@@ -18,11 +18,13 @@ steps:
 #    projects: '**/*Test/*.csproj'
 #    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 - script: dotnet test ./Durable.Mstest/ --logger trx --collect "Code coverage"
+  displayName: 'dotnet test'
 - task: PublishTestResults@2
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
 - script: dotnet publish --output $(Build.ArtifactStagingDirectory)
+  displayName: 'dotnet publish $(Build.ArtifactStagingDirectory)'
 - task: DotNetCoreCLI@2
   inputs:
     command: publish
