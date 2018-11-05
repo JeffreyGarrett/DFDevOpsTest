@@ -24,16 +24,15 @@ steps:
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
-- task: BuildQualityChecks@5
+- task: mspremier.BuildQualityChecks.QualityChecks-task.BuildQualityChecks@5
   displayName: 'Check build quality'
   inputs:
     checkWarnings: true
     forceFewerWarnings: true
     showStatistics: true
     checkCoverage: true
-    coverageDeltaType: percentage
-    buildConfiguration: 25
-    includePartiallySucceeded: false
+    coverageFailOption: fixed
+    coverageThreshold: 2
             #- script: dotnet publish --output $(Build.ArtifactStagingDirectory)
               # displayName: 'dotnet publish $(Build.ArtifactStagingDirectory)'
 - task: DotNetCoreCLI@2
