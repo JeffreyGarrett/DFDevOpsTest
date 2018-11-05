@@ -24,7 +24,6 @@ steps:
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
-steps:
 - task: BuildQualityChecks@5
   displayName: 'Check build quality'
   inputs:
