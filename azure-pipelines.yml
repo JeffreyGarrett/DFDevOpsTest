@@ -24,7 +24,7 @@ steps:
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
-- task: BuildQualityChecks@5.*
+- task: BuildQualityChecks@5
   displayName: 'Check build quality'
   inputs:
     checkWarnings: true
