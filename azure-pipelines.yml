@@ -13,8 +13,13 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-- script: dotnet test ./Durable.Mstest/ --logger trx --collect "Code coverage"
-  displayName: 'dotnet test'
+#- script: dotnet test ./Durable.Mstest/ --logger trx --collect "Code coverage"
+#  displayName: 'dotnet test'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: './Durable.Mstest/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 - task: PublishTestResults@2
   inputs:
     testRunner: VSTest
